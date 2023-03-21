@@ -9,6 +9,28 @@ HandBrake works with most common video files and formats, including ones created
 
 For information on downloading, building/installing, and using HandBrake, see the official [HandBrake Documentation](https://handbrake.fr/docs).
 
+## How to build
+
+```bash
+sudo apt install \
+	libnuma-dev \
+	autopoint \
+	libgtk-3-dev \
+	libgtk3.0-cil-dev \
+	libjansson-dev \
+	libturbojpeg0-dev \
+	libbz2-dev \
+	gettext
+
+./configure \
+  --launch-jobs=$(nproc) \
+  --launch && \
+  sudo make --directory=build install
+```
+
+**reference**
+
+- [Building HandBrake for Linux](https://handbrake.fr/docs/en/latest/developer/build-linux.html)
 
 ## Community Support
 

@@ -853,7 +853,7 @@ static void show_progress_json(hb_state_t * state)
     hb_value_free(&state_dict);
     fprintf(stdout, "Progress: %s\n", state_json);
     free(state_json);
-    fflush(stderr);
+    fflush(stdout);
 }
 
 static int HandleEvents(hb_handle_t * h, hb_dict_t *preset_dict)
@@ -4388,8 +4388,6 @@ static hb_dict_t * PreparePreset(const char *preset_name)
     else if (crop_mode != NULL && !strcmp(crop_mode, "none")) 
     {
         hb_dict_set(preset, "PictureCropMode",  hb_value_int(2));
-    } else {
-        hb_dict_set(preset, "PictureCropMode",  hb_value_int(0)); // Automatic
     }
 
     if (display_width > 0)
